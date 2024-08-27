@@ -1,0 +1,35 @@
+import tomyjerry.*
+
+describe "Tom y Jerry prueba 1" {
+
+    test "velocidad De Tom" {
+        assert.equals(10, tom.velocidadMaxima())
+        tom.comer(jerry)
+        assert.equals(15.2, tom.velocidadMaxima())
+        tom.correr(24)
+        assert.equals(14, tom.velocidadMaxima())
+        tom.comer(nibbles)
+        assert.equals(18.7,tom.velocidadMaxima())
+        jerry.cumplirAnos()
+        tom.comer(jerry)
+        assert.equals(25.9, tom.velocidadMaxima())
+        tom.correr(38)
+        assert.equals(24, tom.velocidadMaxima())
+    }
+
+    test "Puede Comer Jerry" {
+        assert.notThat(tom.puedeComerRaton(120))
+    }
+
+    test "Puede Comer Nibbles" {
+        assert.that(tom.puedeComerRaton(96))
+        assert.notThat(tom.quiereComerRaton(nibbles, 96))
+    }
+
+    test "Tom quiere comer a Nibbles" {
+        assert.that(tom.puedeComerRaton(60))
+        assert.that(tom.quiereComerRaton(nibbles, 60))
+    }
+
+}
+
